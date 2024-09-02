@@ -1,6 +1,6 @@
 ## Requirements
 
-- [ ]  [Pytest를 이용한 테스트 코드 작성법 이해](https://github.com/billyhyunjun/Preonboarding-Backend-Course-Python/blob/main/Django/Pytest%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%BD%94%EB%93%9C%20%EC%9E%91%EC%84%B1%EB%B2%95%20%EC%9D%B4%ED%95%B4.md)
+- [ ]  [Pytest를 이용한 테스트 코드 작성법 이해](./Django/Pytest)
 - [ ]  Django를 이용한 인증과 권한 이해
 - [ ]  JWT와 구체적인 알고리즘의 이해
 - [ ]  PR 날려보기
