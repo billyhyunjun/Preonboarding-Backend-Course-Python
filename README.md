@@ -1,7 +1,7 @@
 ## Requirements
 
 - [ ]  [Pytest를 이용한 테스트 코드 작성법 이해](./Django/Pytest.md)
-- [ ]  Django를 이용한 인증과 권한 이해
+- [ ]  [Django를 이용한 인증과 권한 이해](./Django/인증과권한.md)
 - [ ]  JWT와 구체적인 알고리즘의 이해
 - [ ]  PR 날려보기
 - [ ]  리뷰 바탕으로 개선하기
