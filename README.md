@@ -12,7 +12,7 @@
 **Django기본 이해**
 
 - [ ]  [Middleware란 무엇인가? (with Decorators)](./Django/Middleware.md)
-- [ ]  Django란?
+- [ ]  [Django란?](./Django/django.md)
 
 **JWT 기본 이해**
 
