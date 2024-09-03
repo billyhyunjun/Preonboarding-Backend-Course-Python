@@ -22,11 +22,11 @@
 
 **토큰 발행과 유효성 확인**
 
-- [ ]  Access / Refresh Token 발행과 검증에 관한 테스트 시나리오 작성하기
+- [ ]  [Access / Refresh Token 발행과 검증에 관한 테스트 시나리오 작성하기](./Django/token.md)
 
 **유닛 테스트 작성**
 
-- [ ]  Pytest를 이용한 JWT Unit 테스트 코드 작성해보기
+- [ ]  [Pytest를 이용한 JWT Unit 테스트 코드 작성해보기](./Django/testToken.md)
 
 ### 백엔드 배포하기
 
