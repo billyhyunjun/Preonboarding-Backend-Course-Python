@@ -29,7 +29,7 @@ pip install django djangorestframework djangorestframework-simplejwt
 
 
 * JWT 발행과 검증을 위한 API 구현
-[views.py](accounts/views.py)
+[views.py](../accounts/views.py)
 ```python
 from rest_framework import status
 from rest_framework.response import Response
@@ -52,7 +52,7 @@ class TokenRefreshView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 ```
 * URL 설정
-[urls.py](testdjango/urls.py)
+[urls.py](../testdjango/urls.py)
 ```python
 from django.urls import path
 from accounts.views import TokenObtainPairView, TokenRefreshView
