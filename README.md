@@ -37,7 +37,7 @@
 **로직 작성**
 
 - [ ]  백엔드 로직을 django로
-    - [ ]  회원가입 - /signup
+    - [ ]  [회원가입 - /signup](./Django/signup.md)
         - [ ]  Request Message
             
             ```json
@@ -66,7 +66,7 @@
             
             ```
             
-    - [ ]  로그인 - /login
+    - [ ]  [로그인 - /login](./Django/login.md)
         - [ ]  Request Message
             
             ```json
