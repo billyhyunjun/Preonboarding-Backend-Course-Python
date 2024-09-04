@@ -104,13 +104,14 @@ class UserInfoSerializer(serializers.ModelSerializer):
         });
 </script>
 ```
-![image](https://github.com/user-attachments/assets/9a2c46e5-1d83-4aaa-8cfd-d199b2b2b254)
+![image](https://github.com/user-attachments/assets/cf298cc5-54b3-45fe-a324-eda9ca0a1637)
 
 ## 결과
 
 프론트엔드로 전달 받은 값을 리스폰
 
-![image](https://github.com/user-attachments/assets/2d61ec01-7fa8-4d77-81b4-3cf5ebdfcb0a)
+![image](https://github.com/user-attachments/assets/df3d3e7e-06d1-46bb-8533-7b9376b048ca)
+
 
 postman을 이용한 JSON데이터 결과값 출력
 
