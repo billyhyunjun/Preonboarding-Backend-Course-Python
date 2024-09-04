@@ -63,8 +63,7 @@ class TokenObtainPairView(APIView):
         });
 </script>
 ```
-![image](https://github.com/user-attachments/assets/c025782b-7cbb-4e66-a7df-1b23036ebc58)
-
+![image](https://github.com/user-attachments/assets/ebf73220-2ed0-4d0a-bd4c-224f0526b0c5)
 
 ## 결과
 
