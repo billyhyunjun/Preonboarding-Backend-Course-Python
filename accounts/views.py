@@ -9,13 +9,15 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.exceptions import TokenError, TokenBackendError
-
+from .serializers import UserInfoSerializer  
+from .models import UserProfile
 
 class TokenObtainPairView(APIView):
     def post(self, request):
         serializer = TokenObtainPairSerializer(data=request.data)
         if serializer.is_valid():
-            return Response(serializer.validated_data, status=status.HTTP_200_OK)
+            token = serializer.validated_data.get('access')
+            return Response({ "token": token}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -37,31 +39,27 @@ class TokenRefreshView(APIView):
             return Response({'detail': 'An unexpected error occurred.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class UserInfoView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        user = request.user
-        return Response({
-            'username': user.username,
-            'email': user.email
-        })
-
 
 class RegisterView(APIView):
-    print("들어옴")
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
-        print("결과", username, password)
+        nickname = request.data.get('nickname')  # nickname을 가져옵니다.
+        
         if username and password:
             if User.objects.filter(username=username).exists():
                 return Response({'detail': 'User already exists'}, status=status.HTTP_400_BAD_REQUEST)
+            
             user = User(username=username, password=make_password(password))
             user.save()
-            return Response({'detail': 'User created successfully'}, status=status.HTTP_201_CREATED)
-        return Response({'detail': 'Invalid input'}, status=status.HTTP_400_BAD_REQUEST)
 
+            # nickname과 함께 사용자 프로필 저장
+            UserProfile.objects.create(user=user, nickname=nickname)
+            
+            serializer = UserInfoSerializer(user)
+
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response({'detail': 'Invalid input'}, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(View):
     def get(self, request):
