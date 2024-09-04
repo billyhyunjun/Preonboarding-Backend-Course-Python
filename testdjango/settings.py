@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     ## custom apps
     'rest_framework',
     'rest_framework_simplejwt',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -88,6 +91,12 @@ SIMPLE_JWT = {
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': 'your_secret_key',
 }
+
+# Allow specific origins
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:8000',  # 클라이언트가 실행되고 있는 주소
+    'http://localhost:8000',  # 또 다른 클라이언트 주소
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -135,6 +144,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Ensure these directories exist and contain your static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# During production, collect static files into this directory
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

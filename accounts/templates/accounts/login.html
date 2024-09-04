@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Authentication</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    
+    #auth-section, #user-info {
+        margin-bottom: 20px;
+    }
+    
+    form {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    input {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 200px;
+    }
+    
+</style>
+<body>
+    <div id="app">
+        <div id="auth-section">
+            <h2>Register</h2>
+            <form id="register-form">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" required>
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                <button type="submit">Register</button>
+            </form>
+
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div id="user-info" style="display: none;">
+            <h2>User Information</h2>
+            <p id="user-details"></p>
+            <button id="logout-button">Logout</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const apiBaseUrl = 'http://localhost:8000'; // Replace with your Django API URL
+
+// Registration
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('register-username').value;
+    const password = document.getElementById('register-password').value;
+
+    try {
+        const response = await fetch(`${apiBaseUrl}/register/`, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'  // 클라이언트가 JSON 응답을 받을 것이라고 명시
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert('Registration successful');
+        } else {
+            alert('Registration failed: ' + result.detail);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+
+// Login
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    try {
+        const response = await fetch(`${apiBaseUrl}/api/token/`, { // Ensure this endpoint matches your Django setup
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            localStorage.setItem('access_token', result.access);
+            localStorage.setItem('refresh_token', result.refresh);
+            showUserInfo();
+        } else {
+            alert('Login failed: ' + result.detail);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+// Display user info
+async function showUserInfo() {
+    const token = localStorage.getItem('access_token');
+    if (!token) return;
+
+    try {
+        const response = await fetch(`${apiBaseUrl}/user-info/`, { // Make sure this endpoint returns user info
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            document.getElementById('user-details').textContent = JSON.stringify(result);
+            document.getElementById('auth-section').style.display = 'none';
+            document.getElementById('user-info').style.display = 'block';
+        } else {
+            alert('Failed to fetch user info: ' + result.detail);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Logout
+document.getElementById('logout-button').addEventListener('click', () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    document.getElementById('auth-section').style.display = 'block';
+    document.getElementById('user-info').style.display = 'none';
+});
+
+</script>
