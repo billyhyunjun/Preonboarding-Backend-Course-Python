@@ -1,6 +1,9 @@
 # 회원가입
 유저 데이터를 입력하고 회원가입 버튼을 누르면 해당 데이터를 표기해주기
 
+![image](https://github.com/user-attachments/assets/25c3d3f1-50e1-4d58-b88e-4401517f4fcd)
+
+
 ## 코드
 회원가입 양식에 맞추어 입력을 받고 기본 django User 모델에 nickname을 추가 시켜 등록 후 결과를 리스폰
 
