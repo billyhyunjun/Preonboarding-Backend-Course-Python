@@ -1,6 +1,9 @@
 # 로그인
 유저 데이터를 입력하고 로그인 버튼을 누르면 해당 토큰의 데이터를 표기해주기
 
+![image](https://github.com/user-attachments/assets/c7c428bd-3210-4dea-a963-e2f408f7e29b)
+
+
 ## 코드
 회원등록된 계정의 아이디와 비밀번호를 입력하면 access토큰 값이 출력
 
