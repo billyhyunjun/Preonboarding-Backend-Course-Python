@@ -1,6 +1,6 @@
 # AI에게 코드리뷰 받기
 
-### 나의 코드
+## 나의 코드
 ```python
 from django.shortcuts import render
 from django.views import View
@@ -70,7 +70,7 @@ class LoginView(View):
         return render(request, 'accounts/login.html')
 ```
 
-### gpt 답변
+## gpt 답변
 
 전반적으로 잘 작성된 코드입니다. 다만, 몇 가지 보완할 점과 개선할 수 있는 부분이 있습니다:
 
@@ -100,7 +100,7 @@ class LoginView(View):
 
 이 외에도 구체적인 기능이나 요구 사항에 따라 추가적인 개선 사항이 있을 수 있습니다. 전반적으로, 코드가 잘 구성되어 있으며, 필요한 예외 처리와 검증을 추가하면 더욱 안정적이고 확장 가능한 코드가 될 것입니다.
 
-### 보완
+## 보완
 
 * 보완점
   * RegisterView의 유효성 검사 추가: 비밀번호 길이 검증을 추가합니다. nickname이 필수인지 여부를 확인합니다.
