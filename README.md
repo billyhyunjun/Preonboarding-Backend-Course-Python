@@ -97,7 +97,7 @@
 
 **API 접근과 검증**
 
-- [ ]  Swagger UI로 접속 가능하게 하기
+- [ ]  [Swagger UI로 접속 가능하게 하기](./Django/swagger.md)
 
 [Git 커밋 메시지 잘 쓰는 법 | GeekNews](https://news.hada.io/topic?id=9178&utm_source=slack&utm_medium=bot&utm_campaign=TQ595477U)
 
