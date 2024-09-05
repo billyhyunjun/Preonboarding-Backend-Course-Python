@@ -4,7 +4,7 @@
 - [ ]  [Django를 이용한 인증과 권한 이해](./Django/인증과권한.md)
 - [ ]  [JWT와 구체적인 알고리즘의 이해](./Django/JWT.md)
 - [ ]  [PR 날려보기](./Django/PR.md)
-- [ ]  [리뷰 바탕으로 개선하기](./Django/AI.md)
+- [ ]  [리뷰 바탕으로 개선하기](./Django/refactoring.md)
 - [ ]  [EC2에 배포해보기](./Django/aws.md)
 
 ### 시나리오 설계!
@@ -107,7 +107,7 @@
 
 **Refactoring**
 
-- [ ]  [피드백 받아서 코드 개선하기](./Django/AI.md)
+- [ ]  [피드백 받아서 코드 개선하기](./Django/refactoring.md)
 
 **마무리**
 
