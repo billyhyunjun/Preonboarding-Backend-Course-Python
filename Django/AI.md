@@ -1,5 +1,7 @@
 # AI에게 코드리뷰 받기
 
+내가 작성한 코드를 AI에게 검수 받아 보완할 수 있는 부분을 확인 부족한 부분을 수정해 보았습니다.
+
 ## 나의 코드
 ```python
 from django.shortcuts import render
