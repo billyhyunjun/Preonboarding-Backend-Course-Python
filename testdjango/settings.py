@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-b4g3_0&onikf0p@qqmv^2t5h-qzyphbt88dnoqqjz8v@9!j!6q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     ## custom apps
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
     'accounts',
 ]
 
@@ -94,7 +95,7 @@ SIMPLE_JWT = {
 
 # Allow specific origins
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:8000',  # 클라이언트가 실행되고 있는 주소
+    'http://172.31.83.58:8000',  # 클라이언트가 실행되고 있는 주소
     'http://localhost:8000',  # 또 다른 클라이언트 주소
 ]
 
